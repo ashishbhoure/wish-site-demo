@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#b9a3f7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🎂%3C/text%3E%3C/svg%3E">
+<title>A little surprise 💜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<!-- floating background (balloons, twinkles, clouds) -->
+<div id="bg" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- ============ GIFT GATE ============ -->
+<div id="gate">
+  <div class="gate-cats" id="gateCats"></div>
+  <p class="gate-small">psst… someone has a surprise for you</p>
+  <button id="gift" class="gift" aria-label="Open the gift">
+    <span class="gift-lid"><i class="bow"></i></span>
+    <span class="gift-box"></span>
+    <span class="gift-tape"></span>
+  </button>
+  <h2 class="gate-title">Tap to open your gift 🎁</h2>
+</div>
+
+<!-- music + cat companion -->
+<button id="musicBtn" class="round-btn" aria-label="Toggle music" title="Music">🎵</button>
+<button id="catBuddy" aria-label="Pet the cat"><span id="catBuddySvg"></span><span id="catSay"></span></button>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="sec">
+  <div class="bunting" id="bunting" aria-hidden="true"></div>
+  <p class="eyebrow">🎀 it's a very special day 🎀</p>
+  <h1 class="hb" id="hbTitle" aria-label="Happy Birthday"></h1>
+  <div class="hero-photo">
+    <div class="ring"></div>
+    <div class="ring r2"></div>
+    <img id="heroImg" alt="">
+    <span class="hp-cat" id="heroCat"></span>
+    <span class="sparkle s1">✦</span><span class="sparkle s2">✧</span><span class="sparkle s3">✦</span>
+  </div>
+  <h2 class="name" id="nameTitle"></h2>
+  <p class="sub" id="heroLine"></p>
+  <a href="#candles" class="scroll-hint">scroll down <span>⌄</span></a>
+</section>
+
+<!-- ============ CANDLES ============ -->
+<section id="candles" class="sec reveal">
+  <h2 class="sec-title">Make a wish <small>then blow out the candles</small></h2>
+  <div class="cake-wrap">
+    <div class="candles" id="candleRow"></div>
+    <div class="cake" id="cake">
+      <div class="tier t1"></div>
+      <div class="tier t2"></div>
+      <div class="tier t3"></div>
+      <div class="drip"></div>
+      <div class="cake-name" id="cakeName"></div>
+      <div class="plate"></div>
+    </div>
+    <div class="cake-cat" id="cakeCat"></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn" id="blowBtn">💨 Blow the candles</button>
+    <button class="btn ghost" id="micBtn">🎤 blow for real</button>
+  </div>
+  <p class="wish-msg" id="wishMsg">tap the cake or the button!</p>
+</section>
+
+<!-- ============ CAROUSEL ============ -->
+<section id="gallery" class="sec reveal">
+  <h2 class="sec-title">Memory lane <small>swipe through ✨</small></h2>
+  <div class="peek-slot" id="peek1"></div>
+  <div class="stage" id="stage"></div>
+  <div class="car-ctrl">
+    <button class="round-btn sm" id="prev" aria-label="Previous">‹</button>
+    <div class="dots" id="dots"></div>
+    <button class="round-btn sm" id="next" aria-label="Next">›</button>
+  </div>
+</section>
+
+<!-- ============ DRAG CARDS ============ -->
+<section id="cards" class="sec reveal">
+  <h2 class="sec-title">Polaroid pile <small>drag me around · tap to flip 💌</small></h2>
+  <div class="board" id="board"></div>
+</section>
+
+<!-- ============ CLICK & MESSAGE ============ -->
+<section id="wishesSec" class="sec reveal">
+  <h2 class="sec-title">Tiny wishes <small>tap the hearts 💗</small></h2>
+  <div class="hearts-field" id="heartsField"></div>
+  <p class="count" id="wishCount">0 / 8 opened</p>
+  <div class="secret" id="secret" hidden>
+    <div class="secret-cat" id="secretCat"></div>
+    <p></p>
+  </div>
+</section>
+
+<!-- ============ SCRAPBOOK ============ -->
+<section id="scrap" class="sec reveal">
+  <h2 class="sec-title">Scrapbook <small>a little page of you</small></h2>
+  <div class="paper" id="paper"></div>
+</section>
+
+<!-- ============ 3D WORLD ============ -->
+<section id="world" class="sec reveal">
+  <h2 class="sec-title">3D world <small>drag to look around · pinch to zoom 🌌</small></h2>
+  <div class="world-wrap" id="worldWrap">
+    <canvas id="worldCanvas"></canvas>
+    <div class="world-loading" id="worldLoading">building your world…</div>
+    <button class="round-btn sm world-full" id="worldFull" aria-label="Fullscreen">⛶</button>
+    <p class="world-hint">tap a photo to zoom</p>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section id="final" class="sec reveal">
+  <div class="final-cats" id="finalCats"></div>
+  <div class="letter">
+    <h2 class="hand" id="fGreet"></h2>
+    <p id="fMsg"></p>
+    <p class="hand sign">with lots of love,<br><b id="fFrom"></b> 💜</p>
+  </div>
+  <button class="btn" id="again">🎉 More confetti!</button>
+</section>
+
+<footer>made with 💜 &amp; a little bit of glitter</footer>
+</main>
+
+<!-- popups -->
+<div id="note" class="note" hidden>
+  <div class="note-card"><span class="note-cat" id="noteCat"></span><p id="noteText"></p><button class="btn sm" id="noteClose">aww 🥹</button></div>
+</div>
+<div id="lightbox" hidden><button class="round-btn" id="lbClose" aria-label="Close">✕</button><img alt=""></div>
+
+<script src="three.min.js"></script>
+<script src="themes.js"></script>
+<script src="photos/manifest.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
