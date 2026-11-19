@@ -4,7 +4,7 @@
    Use {name} inside any text and it becomes the person's name.
    ============================================================ */
 window.CFG = {
-  name: "Priya",              // who the website is for
+  name: "Aashi",              // who the website is for
   from: "Your Friend",        // who signs the letter
 
   // ---- the big title (2 lines). Change for other occasions:
